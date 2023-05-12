@@ -1,11 +1,9 @@
 import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv';
-
-dotenv.config();
+require('dotenv').config();
 
 const secret = process.env.JWT_SECRET as string;
 
-export default class VerifyTokenService {
+export class VerifyEmailTokenService {
     static verifyToken(token: string) {
         try {
             const decoded = jwt.verify(token, secret);

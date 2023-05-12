@@ -1,9 +1,9 @@
-import VerifyTokenService from '../services/verifyToken.service';
-import { VerifyEmailUseCaseParams } from '../interfaces/verifyEmailUseCaseParams';
+import { VerifyEmailTokenService } from '../services/verifyEmailToken.service';
+import { VerifyEmailToken } from '../interfaces/verifyEmailToken';
 
-export default class VerifyEmailUseCase {
-    static verifyEmail({ token }: VerifyEmailUseCaseParams) {
-        const decoded = VerifyTokenService.verifyToken(token);
+export class VerifyEmailUseCase {
+    static verifyEmail({ token }: VerifyEmailToken) {
+        const decoded = VerifyEmailTokenService.verifyToken(token);
         return decoded;
     }
 }

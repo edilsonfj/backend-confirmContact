@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import VerifyEmailUseCase from '../usecases/verifyEmail.usecase';
+import { VerifyEmailUseCase } from '../usecases/verifyEmail.usecase';
 
 export function verifyEmailController(req: Request, res: Response) {
     const { token } = req.query;

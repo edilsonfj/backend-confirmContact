@@ -1,11 +1,9 @@
-import createTransporter from './transporter.service';
-import dotenv from 'dotenv';
-
-dotenv.config();
+import { createTransporter } from './transporter.service';
+require('dotenv').config();
 
 const from = process.env.EMAIL_FROM as string;
 
-export default class SendEmailService {
+export class SendEmailService {
     async sendEmail(email: string, subject: string, body: string) {
         const transporter = createTransporter();
 

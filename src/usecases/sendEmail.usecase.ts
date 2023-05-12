@@ -1,9 +1,9 @@
-import SendEmailService from "../services/sendEmail.service";
-import TokenService from "../services/token.service";
-import { SendEmailUseCaseParams } from "../interfaces/sendEmailUseCaseParams";
+import { SendEmailService } from "../services/sendEmail.service";
+import { TokenService } from "../services/token.service";
+import { SendEmailToken } from "../interfaces/sendEmailToken";
 
-export default class SendEmailUseCase {
-    static async sendEmail({ to, subject, body }: SendEmailUseCaseParams) {
+export class SendEmailUseCase {
+    static async sendEmail({ to, subject, body }: SendEmailToken) {
         const token = TokenService.generateToken(to);
         const url = `http://localhost:3000/verify-email?token=${token}`;
         const sendEmailService = new SendEmailService();
